@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap");
+:root {
+  /* Brand */
+  --color-primary: #8b7ce8;
+  --color-primary-hover: #7868d6;
+  --color-primary-light: #a99cf2;
+  --color-primary-soft: #eae6ff;
+  /* Background */
+  --color-background: #f8f9fc;
+  --color-surface: #ffffff;
+  /* Text */
+  --color-text: #222333;
+  --color-text-secondary: #777b8e;
+  --color-text-muted: #a1a5b5;
+  /* Border */
+  --color-border: #ececf2;
+  /* Status */
+  --color-success: #16a67a;
+  --color-success-soft: #e5f7f0;
+  --color-warning: #f0a33a;
+  --color-warning-soft: #fff4e3;
+  --color-danger: #e45d70;
+  --color-danger-soft: #fdecef;
+  --color-neutral: #7b8498;
+  --color-neutral-soft: #f0f1f5;
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  /* Shadow */
+  --shadow-card: 0 4px 20px rgba(35, 30, 75, 0.04);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family:
+    "Pretendard",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  color: var(--color-text);
+  background: var(--color-background);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 3px solid rgba(139, 124, 232, 0.3);
+  outline-offset: 2px;
+}
+
+.page-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 36px 48px;
+}
+
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.primary-button:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  color: var(--color-text);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    padding: 24px 18px;
+  }
+}
