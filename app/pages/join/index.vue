@@ -12,9 +12,9 @@ const submitInviteCode = async () => {
     return;
   }
 
-  if (!/^[A-Z0-9]{6,10}$/.test(code)) {
+  if (!/^[A-Z0-9]{12}$/.test(code)) {
     errorMessage.value =
-      "초대 코드는 영문 대문자와 숫자 6~10자리로 입력해 주세요.";
+      "초대 코드는 영문 대문자와 숫자 12자리로 입력해 주세요.";
     return;
   }
 
@@ -42,8 +42,8 @@ const submitInviteCode = async () => {
             id="inviteCode"
             v-model="inviteCode"
             type="text"
-            maxlength="10"
-            placeholder="예: EVT2026"
+            maxlength="12"
+            placeholder="예: A1B2C3D4E5F6"
             autocomplete="off"
             autocapitalize="characters"
             @input="inviteCode = inviteCode.toUpperCase()"

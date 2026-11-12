@@ -1,5 +1,14 @@
 export default defineNuxtConfig({
   compatibilityDate: "2026-10-30",
+  // 토큰을 localStorage에 두는 클라이언트 중심 앱이라 SPA로 동작
+  ssr: false,
+
+  runtimeConfig: {
+    public: {
+      // 배포 시에는 환경변수 NUXT_PUBLIC_API_BASE로 덮어쓸 수 있음
+      apiBase: "http://localhost:8080",
+    },
+  },
 
   devtools: {
     enabled: true,

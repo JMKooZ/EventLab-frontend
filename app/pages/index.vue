@@ -8,7 +8,8 @@ const notice = ref("");
 const filters = [
   { label: "전체", value: "ALL" },
   { label: "진행 중", value: "RUNNING" },
-  { label: "대기 중", value: "WAITING" },
+  { label: "대기 중", value: "DRAFT" },
+  { label: "일시정지", value: "PAUSED" },
   { label: "종료", value: "ENDED" },
 ];
 
@@ -85,20 +86,6 @@ const totalParticipants = computed(() =>
   events.value.reduce((total, event) => total + event.participants, 0),
 );
 
-const getStatus = (status) => {
-  const statusMap = {
-    RUNNING: { label: "진행 중", className: "status-running" },
-    WAITING: { label: "대기 중", className: "status-waiting" },
-    ENDED: { label: "종료", className: "status-ended" },
-  };
-
-  return statusMap[status];
-};
-
-const getType = (type) => {
-  return type === "POLL" ? "설문" : "퀴즈";
-};
-
 let noticeTimer;
 
 const showMessage = (message) => {
@@ -119,7 +106,6 @@ const openEvent = (event) => {
 
 <template>
   <div class="dashboard">
-
     <main class="page-container">
       <section class="welcome-section">
         <div>
@@ -220,9 +206,9 @@ const openEvent = (event) => {
 
                 <span
                   class="status-badge"
-                  :class="getStatus(event.status).className"
+                  :class="eventStatusOf(event.status).className"
                 >
-                  {{ getStatus(event.status).label }}
+                  {{ eventStatusOf(event.status).label }}
                 </span>
               </div>
 
@@ -231,10 +217,6 @@ const openEvent = (event) => {
               </p>
 
               <div class="event-meta">
-                <span class="type-badge">
-                  {{ getType(event.type) }}
-                </span>
-
                 <span>{{ event.createdAt }}</span>
                 <span>질문 {{ event.questionCount }}개</span>
               </div>
